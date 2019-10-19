@@ -1,0 +1,27 @@
+If you google any sentence in this post, you will find only a single result.
+If you're silly enough to enclose your search in quotes when you search, like
+so "Another sentence." then it'll show up in Google Trends.
+
+Alternatively, if you copy-paste it somewhere that can be indexed it'll show up
+on the first page. This blog isn't being served by me, but if it was I could serve
+a slightly different sentence to each visitor and see what each of them did with the
+content.
+
+You might think twice about copy-pasting for that next essay huh?
+
+This is possible because of Unicode. You might have heard of it in a story about them
+adding more emojis or something else equally banal. Essentially it's a way to turn letters
+into numbers. Unicode is an extension for the ASCII encoding which adds support for more languages.
+At the time of writing Unicode contains 112,956 characters from almost every language, dead or not,
+and, of course, emoji.
+
+Here we find our first technique. Many languages have characters that *look* like the English alphabet,
+but aren't. For example, this is an English 'a'. This is a crylic 'а'. Can you tell the difference?
+Well your computer can. It turns out that there are enough similar characters that you can make a sufficiently
+long string of text unique.
+
+But it doesn't stop there. Unicode also includes six non-display characters which aren't rendered.
+With this we can encode any information we want in empty space: . You can't see it, but after that
+colon there's the entire text of the bible encoded in base 6. Technically this post is X words long.
+
+Not bad for an hours work.
