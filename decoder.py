@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import gzip
 
@@ -47,12 +48,12 @@ decoder = Dencoder(ALPHABET)
 print('Decoding')
 new = open(FILE, 'r', encoding='utf8')
 encoded = new.read().split(NULL)
-decoded = bytearray()
+decoded = []
 for i, s in enumerate(encoded):
     d = decoder.decode(s)
-    decoded.append(d)
+    decoded.append(chr(d))
 
 print('Decompressing')
-decompressed = gzip.decompress(decoded)
-with open(OUT, 'wb') as decompressed_f:
+decompressed = "".join(decoded)
+with open(OUT, 'w') as decompressed_f:
     decompressed_f.write(decompressed)

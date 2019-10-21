@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import gzip
 import os
 import sys
@@ -13,7 +14,7 @@ print(f'File length: {os.stat(FILE).st_size} bytes')
 with open(FILE, encoding='utf8') as file:
 
     print('Compressing text')
-    compressed = gzip.compress(bytes(file.read(), "utf8"))
+    compressed = file.read()
 
 # Taken from https://en.wikipedia.org/wiki/Whitespace_character#Unicode
 ALPHABET = "\u200B\u200C\u200D\u2060\uFEFF"
@@ -54,13 +55,13 @@ print('Encoding')
 encoder = Dencoder(ALPHABET)
 encoded = []
 for byte in compressed:
-    encoded.append(encoder.encode(byte))
+    encoded.append(encoder.encode(ord(byte)))
 
 print('Consistence check')
 for i, byte in enumerate(encoded):
-    assert encoder.decode(byte) == compressed[i]
+    assert chr(encoder.decode(byte)) == compressed[i]
 
 print('Writing encoded file to out.txt')
-with open('out.txt', 'w', encoding='utf8') as out:
+with open(OUT, 'w', encoding='utf8') as out:
     out.write(NULL.join(encoded))
-print(f'File length: {os.stat("out.txt").st_size} bytes')
+print(f'File length: {os.stat(OUT).st_size} bytes')
